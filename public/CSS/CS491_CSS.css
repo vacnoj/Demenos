@@ -4,7 +4,7 @@ html{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-h1{
+h1,h2{
 	text-align: center;
 	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
 }
@@ -15,4 +15,46 @@ h1{
 }
 footer{
 	text-align: center;
+}
+
+.Searchcontainer{
+	width: 100%;
+	max-width: 580px;
+	margin: 15px auto;
+	background: #f35959;
+	padding: 25px 15px;
+	display:block;
+	text-align: center;
+	
+}
+.container{
+	max-width:500px;
+	width:100%;
+	background: #f35959;
+	padding:15px;
+	display:block;
+	text-align: center;
+	margin: auto;
+}
+
+form {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+.Searchcontainer label{
+	width: 100%;
+	padding: 0px 15px;
+	background-image: linear-gradient(to right,#d5ddf6,#f35959);
+	border-bottom: 1px solid #4414141;
+}
+.container label{
+	width: 100%;
+	padding: 0px 15px;
+	background-image: linear-gradient(to right,#d5ddf6,#f35959);
+	border-bottom: 1px solid #4414141;
+}
+h2{
+	background-image: linear-gradient(to right,#d5ddf6,#f35959);
 }

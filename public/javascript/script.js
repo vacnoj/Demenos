@@ -24,6 +24,16 @@ $(document).ready(function () {
 
     }
 
+    $('#MenuBar1').empty();
+    $('#MenuBar1').append(
+        `<li><a href="/">Home</a></li>
+        <li><a href="flights">Flights</a></li>
+        <li><a href="#Check">Check-In</a></li>
+        <li><a href="#Status">Flight Status</a></li>
+        <li><a href="#Sign/Log-in">Sign/Log-In</a></li>
+        <li><a href="payment">Payment</a></li>`
+    )
+
     $('#tripSubmit').on('click', function (event) {
         event.preventDefault();
 
@@ -41,6 +51,8 @@ $(document).ready(function () {
 
         console.log(trip);
 
+        location.href = "/payment"
+
     });
 
     $('#paymentSubmit').on('click', function (event) {
@@ -49,18 +61,23 @@ $(document).ready(function () {
         console.log('Form submitted');
 
         const customer = new Customer(
-            $('#firstname').val(),
-            $('#lastname').val(),
-            $('#birthday').val(),
-            $('#CrdNum').val(),
-            $('#Exdate').val(),
-            $('#cardNum').val(),
-            $('#expDate').val(),
-            $('#cvv').val(),
-            $('#nameOnCard').val()
+            $('#firstname').val().trim(),
+            $('#lastname').val().trim(),
+            $('#birthday').val().trim(),
+            $('#cardNum').val().trim(),
+            $('#expDate').val().trim(),
+            $('#cvv').val().trim(),
+            $('#nameOnCard').val().trim()
         )
 
         console.log(customer);
+
+        // $.ajax("api/customer", {
+        //     type: "POST",
+        //     data: customer
+        // }).done(function() {
+        //     console.log("Customer created")
+        // })
 
     });
 
