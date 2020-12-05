@@ -34,8 +34,15 @@ $(document).ready(function () {
         <li><a href="payment">Payment</a></li>`
     )
 
+    $('#MenuBar2').empty();
+    $('#MenuBar2').append(
+        '<li><a href="login">Sign/Log-In</a></li>'
+    )
+
     $('#tripSubmit').on('click', function (event) {
         event.preventDefault();
+
+        // validate entries here
 
         console.log('Form submitted');
 
@@ -58,6 +65,8 @@ $(document).ready(function () {
     $('#paymentSubmit').on('click', function (event) {
         event.preventDefault();
 
+        // Validate entries here
+
         console.log('Form submitted');
 
         const customer = new Customer(
@@ -72,12 +81,12 @@ $(document).ready(function () {
 
         console.log(customer);
 
-        // $.ajax("api/customer", {
-        //     type: "POST",
-        //     data: customer
-        // }).done(function() {
-        //     console.log("Customer created")
-        // })
+        $.ajax("/api/customer", {
+            type: "POST",
+            data: customer
+        }).done(function() {
+            console.log("Customer created")
+        })
 
     });
 
