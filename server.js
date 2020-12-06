@@ -30,16 +30,22 @@ app.get('/login', (req, res) => {
 
 // Creates
 
-app.post("/api/customer", function(req, res) {
-    console.log(req.body.first_name)
-    connection.query("INSERT INTO customer (first_name, last_name, birthday, card_number, card_expiration_date, cvv, name_on_card) VALUES (?,?,?,?,?,?,?)", 
-        [req.body.first_name, req.body.last_name, req.body.birthday, req.body.card_number, req.body.card_expiration_date, req.body.cvv, req.body.name_on_card] ,
+app.post("/api/add_customer", function(req, res) {
+    console.log("Querying database")
+    console.log(req.body)
+    connection.query("INSERT INTO Customer (first_name, last_name, email, password, created_date) VALUES (?,?,?,?,?)", 
+        [req.body.first_name, 
+            req.body.last_name, 
+            req.body.email, 
+            req.body.password, 
+            req.body.created_date
+        ] ,
         function(err, result) {
-    // connection.query("INSERT INTO customer (first_name) VALUES (?)", req.body.first_name, function(err, result) {
         if (err) {
             console.log(err)
             return res.status(500).end()
         }
+        console.log("Customer Created")
         res.status(200).end()
     })
 })
