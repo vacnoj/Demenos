@@ -8,6 +8,11 @@ $(function () {
         this.created_date = created_date;
     }
 
+    function LoginAttempt(user_email, user_password) {
+        this.user_email = user_email;
+        this.user_password = user_password;
+    }
+
     $('#loginDiv').append(
         // <a class="waves-effect waves-light btn">button</a>
         `<button class='waves-effect waves-light btn' value='login'>Log In</button>
@@ -30,7 +35,55 @@ $(function () {
     });
 
     function login() {
+        // clear the buttons
+        $('#loginDiv').empty();
+        // Warn about password
+        alert("This website is for academic purposes. Please do not put any personal info including passwords as they are not secure")
+        // append form to loginDiv
+        $('#loginDiv').append(
+            `<div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6 offset-s3">
+                            <input id="userEmail" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6 offset-s3">
+                            <input id="userPassword" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" id="submitLoginForm" type="submit" name="submitLogin">Log In
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>`
+        )
+        // send to database on submit form
+        $('#submitLoginForm').on('click', function() {
+            // create login attempt object
+            let loginAttempt = new LoginAttempt(
+                $('#userEmail').val().trim(),
+                $('#userPassword').val().trim(),
+            )
+            console.log(loginAttempt)
+            $.ajax('/api/login',{
+                type: 'POST',
+                data: loginAttempt
+            }).done(function(result) {
 
+                if (result.length > 0) {
+                    console.log("Login Accepted");
+                    console.log('Welcome, ' + result[0].first_name)
+                    loginValid = true;
+                    currentUser = result[0];
+                    location.href = '/'
+                }
+
+            })
+        })
     }
 
     function signUp() {
@@ -70,7 +123,6 @@ $(function () {
                 </form>
             </div>`
         )
-        
         // send to database on submit form
         $('#submitSignUpForm').on('click', function() {
             // create customer object

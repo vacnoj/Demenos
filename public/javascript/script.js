@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
     console.log('running script.js');
-
-
+   
     function Customer(first_name, last_name, birthday, card_number, card_expiration_date, cvv, name_on_card) {
         this.first_name = first_name;
         this.last_name = last_name;

@@ -3,7 +3,8 @@ const connection = require('./connection')
 const app = express()
 const port = 3000
 
-console.log(__dirname)
+let currentUser = [];
+let loginValid = false;
 
 app.use(express.static('public'))
 
@@ -26,6 +27,33 @@ app.get('/payment', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
+})
+
+// Login check
+app.post("/api/login", function(req, res) {
+    console.log("Querying database")
+    console.log(req.body)
+    connection.query("SELECT * FROM Customer WHERE email = (?) AND password = (?)", 
+        [
+            req.body.user_email, 
+            req.body.user_password, 
+        ] ,
+        function(err, result) {
+        if (err) {
+            console.log(err)
+            return res.status(500).end()
+        }
+        if (result == []) {
+            return res.status(404).end()
+        } 
+
+        console.log(result)
+        res.send(result)
+        currentUser = result[0];
+        loginValid = true;
+        res.status(200).end()
+        
+    })
 })
 
 // Creates
@@ -53,3 +81,6 @@ app.post("/api/add_customer", function(req, res) {
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
 })
+
+exports.loginValid = this.loginValid
+exports.currentUser = this.currentUser
