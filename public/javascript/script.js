@@ -29,14 +29,24 @@ $(document).ready(function () {
         <li><a href="flights">Flights</a></li>
         <li><a href="#Check">Check-In</a></li>
         <li><a href="#Status">Flight Status</a></li>
-        <li><a href="#Sign/Log-in">Sign/Log-In</a></li>
+        <li><a href="login">Sign/Log-In</a></li>
         <li><a href="payment">Payment</a></li>`
     )
 
     $('#MenuBar2').empty();
     $('#MenuBar2').append(
-        '<li><a href="login">Sign/Log-In</a></li>'
+        `<li><a href="/">Home</a></li>
+        <li><a href="flights">Flights</a></li>
+        <li><a href="#Check">Check-In</a></li>
+        <li><a href="#Status">Flight Status</a></li>
+        <li><a href="login">Sign/Log-In</a></li>
+        <li><a href="payment">Payment</a></li>`
     )
+
+    // $('#MenuBar2').empty();
+    // $('#MenuBar2').append(
+    //     '<li><a href="login">Sign/Log-In</a></li>'
+    // )
 
     $('#tripSubmit').on('click', function (event) {
         event.preventDefault();

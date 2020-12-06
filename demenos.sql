@@ -10,7 +10,12 @@ CREATE TABLE Customer (
     email VARCHAR(255),
     'password' VARCHAR(255),
     created_date VARCHAR(255),
+    pay_info_id FOREIGN KEY,
     PRIMARY KEY (customer_id)
+)
+
+CREATE TABLE Guest (
+
 )
 
 -- birthday DATE,
