@@ -1,0 +1,19 @@
+nav {
+    background: #f35959 !important;
+}
+
+.container {
+    background-color: rgb(128 128 128 / .5);
+    margin-top: 10vh !important;
+}
+
+#loginDiv label {
+    background-image: none;
+    padding: reset;
+    color: black;
+    font-weight: bolder;
+}
+
+input {
+    
+}

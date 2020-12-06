@@ -1,0 +1,193 @@
+/* CSS Document */
+body{
+	font-family: 'Cabin', sans-serif;
+}
+
+.banner-home{
+	background-image: url("../images/Fandom_Logo.jpg");
+	height: 200px;
+	width: 270px;
+	background-size: cover;
+	background-position: center;
+	align-content: center;
+}
+.banner-home h1{
+	font-family: 'Cabin', sans-serif;
+	text-align: end;
+	margin-top: 0;
+	color: aliceblue;
+}
+nav ul li a{
+	text-decoration: none;
+	color: aliceblue;
+	background-color: #FA383B;
+	display: block;
+	text-align: center;
+	padding: 2px 0 2px 0;
+	margin-bottom: 5px;
+}
+nav ul li a:hover{
+	background-color: #B94A07;
+	
+}
+nav ul{
+	list-style: none;
+	padding-left: 0;
+}
+html{
+	background-color: #404040;
+	background-image: linear-gradient(to bottom right, #404040, #FF5858);
+}
+.art-recom h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 10px 350px 10px 350px;
+}
+.art-recom-img{
+	width: 800px;
+	height: 620px;
+	margin: 0 auto;
+	background-position: center;
+	background-image: url("../images/CannonBusters.jpg");
+}
+.art-recom h3{
+	text-align: center;
+	color: aliceblue;
+	text-decoration: underline;
+	font-family: 'Cabin', sans-serif;
+}
+.image-one{
+	float: left;
+	width: 25%;
+	padding: 50;
+	
+}
+.row::after{
+	content: "";
+	clear: both;
+	display: table;
+}
+.art-recent h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 10px 350px 10px 0px;
+	
+}
+.Top-News h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 10px 350px 10px 350px;
+}
+.art-trending h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 10px 350px 10px 0px;
+}
+.art-recom p{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+}
+.art-recent{
+	color: aliceblue;
+	font-family: 'Cabin', sans-serif;
+}
+.art-trending{
+	color: aliceblue;
+	font-family: 'Cabin', sans-serif;
+}
+.column{
+	float: center;
+	width: 100%;
+}
+.art-review h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 100px 350px 100px 350px;
+}
+.sec-gameplay h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 100px 350px 100px 350px;
+}
+.sec-gameplay p{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+}
+.art-review p{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+}
+.art-review-img{
+	width: 800px;
+	height: 520px;
+	margin: 0 auto;
+	background-position: center;
+	background-image: url("../images/NBA2K.png");
+}
+.sec-gameplay-img{
+	width: 800px;
+	height: 520px;
+	margin: 0 auto;
+	background-position: center;
+	background-image: url("../images/mk11.jpg");
+}
+.art-gameplay h2{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+	background-color: #FA383B;
+	margin: 100px 350px 100px 350px;
+}
+.art-gameplay p{
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+	color: aliceblue;
+}
+header{
+	margin: 0.9px;
+	padding: 0.9px;
+}
+p,h1{
+	color: aliceblue;
+	text-align: center;
+	
+}
+.container{
+	width: 100%;
+	max-width: 350px;
+	margin: 15px auto;
+	background: #232734;
+	padding: 25px 15px;
+	
+}
+.container label,h2{
+	color: aliceblue;
+}
+form {
+	margin: 0px 15px;
+}
+.container label{
+	width: 100%;
+	padding: 0px 15px;
+	background-image: linear-gradient(to right, #33344C, #232734);
+	border-bottom: 1px solid #441414;
+}
+
+
+
+

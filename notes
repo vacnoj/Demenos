@@ -1,0 +1,5 @@
+lets just handle the login on the front end. Check if it's in the database, send it back to the front end 
+
+create guest checkout
+ - from payment page if not logged in
+ - need a route
