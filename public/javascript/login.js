@@ -140,6 +140,7 @@ $(function () {
                 data: newCustomer
             }).done(function() {
                 console.log("New Customer created");
+                location.href = '/'
             })
         })
     }
