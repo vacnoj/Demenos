@@ -1,5 +1,55 @@
 $(function () {
 
+    $('.tooltipped').tooltip();
+    $('.sidenav').sidenav();
+
+    if (localStorage.getItem("user")) {
+        $('#MenuBar1').empty();
+        $('#MenuBar1').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a class="signOut">Sign Out</a></li>
+            `
+        )
+        $('#MenuBar2').empty();
+        $('#MenuBar2').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a class="signOut">Sign Out</a></li>
+            `
+        )
+    } else {
+        $('#MenuBar1').empty();
+        $('#MenuBar1').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a href="login">Sign/Log-In</a></li>
+            `
+        )
+
+        $('#MenuBar2').empty();
+        $('#MenuBar2').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a href="login">Sign/Log-In</a></li>
+            `
+        )
+    }
+
+
+
     function NewCustomer(first_name, last_name, email, password, created_date) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -15,13 +65,14 @@ $(function () {
 
     $('#loginDiv').append(
         // <a class="waves-effect waves-light btn">button</a>
-        `<button class='waves-effect waves-light btn' value='login'>Log In</button>
+        `<button class='waves-effect waves-light btn disabled' data-tooltip='Fucntionality coming soon' value='login'>Log In</button>
         <button class='waves-effect waves-light btn' value='signup'>Sign Up</button>`
     )
 
     $('#loginDiv').on('click', 'button', function (e) {
         e.preventDefault();
         let selection = e.target.value;
+        $('.tooltipped').tooltip();
 
         if (selection === 'login') {
             console.log('Beginning login sequence')
@@ -89,6 +140,8 @@ $(function () {
     function signUp() {
         // clear the buttons
         $('#loginDiv').empty();
+        // Clear user out of local storage
+        localStorage.clear("user")
         // Warn about password
         alert("This website is for academic purposes. Please do not put any personal info including passwords as they are not secure")
         // append form to loginDiv
@@ -140,6 +193,7 @@ $(function () {
                 data: newCustomer
             }).done(function() {
                 console.log("New Customer created");
+                localStorage.setItem("user", JSON.stringify(newCustomer))
                 location.href = '/'
             })
         })
