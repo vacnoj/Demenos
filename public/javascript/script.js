@@ -1,7 +1,19 @@
 $(document).ready(function () {
 
     console.log('running script.js');
-   
+
+    if (localStorage.getItem("user")) {
+        let user = JSON.parse(localStorage.getItem("user"))
+        console.log(user)
+        $('.user_greeting').text(`Welcome, ${user.first_name}`);
+    }
+
+    $('.MenuBarHorizontal').on('click', '.signOut', function() {
+        console.log("User signed out");
+        localStorage.clear("user")
+        location.reload();
+    })
+    
     function Customer(first_name, last_name, birthday, card_number, card_expiration_date, cvv, name_on_card) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -23,30 +35,50 @@ $(document).ready(function () {
 
     }
 
-    $('#MenuBar1').empty();
-    $('#MenuBar1').append(
-        `<li><a href="/">Home</a></li>
-        <li><a href="flights">Flights</a></li>
-        <li><a href="#Check">Check-In</a></li>
-        <li><a href="#Status">Flight Status</a></li>
-        <li><a href="login">Sign/Log-In</a></li>
-        <li><a href="payment">Payment</a></li>`
-    )
+    if (localStorage.getItem("user")) {
+        $('#MenuBar1').empty();
+        $('#MenuBar1').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a class="signOut">Sign Out</a></li>
+            `
+        )
+        $('#MenuBar2').empty();
+        $('#MenuBar2').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a class="signOut">Sign Out</a></li>
+            `
+        )
+    } else {
+        $('#MenuBar1').empty();
+        $('#MenuBar1').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a href="login">Sign/Log-In</a></li>
+            `
+        )
 
-    $('#MenuBar2').empty();
-    $('#MenuBar2').append(
-        `<li><a href="/">Home</a></li>
-        <li><a href="flights">Flights</a></li>
-        <li><a href="#Check">Check-In</a></li>
-        <li><a href="#Status">Flight Status</a></li>
-        <li><a href="login">Sign/Log-In</a></li>
-        <li><a href="payment">Payment</a></li>`
-    )
-
-    // $('#MenuBar2').empty();
-    // $('#MenuBar2').append(
-    //     '<li><a href="login">Sign/Log-In</a></li>'
-    // )
+        $('#MenuBar2').empty();
+        $('#MenuBar2').append(
+            `
+            <li><a href="/">Home</a></li>
+            <li><a href="flights">Flights</a></li>
+            <li><a href="#Check">Check-In</a></li>
+            <li><a href="#Status">Flight Status</a></li>
+            <li><a href="login">Sign/Log-In</a></li>
+            `
+        )
+    }
 
     $('#tripSubmit').on('click', function (event) {
         event.preventDefault();
@@ -99,4 +131,15 @@ $(document).ready(function () {
 
     });
 
+    $('#resetPaymentForm').on('click', function() {
+
+        $('#firstname').val(""),
+        $('#lastname').val(""),
+        $('#birthday').val(""),
+        $('#cardNum').val(""),
+        $('#expDate').val(""),
+        $('#cvv').val(""),
+        $('#nameOnCard').val("")
+
+    })
 });

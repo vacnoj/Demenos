@@ -15,6 +15,7 @@
 
 <body>
 	<h1>Deménos Airlines</h1>
+	<h3 class="user_greeting"></h3>
 	<ul id="MenuBar1" class="MenuBarHorizontal">
 		<li><a href="CS491_index.html">Home</a></li>
 		<li><a href="#flights">Flights</a></li>
@@ -53,11 +54,12 @@
 			<label>
 				Full Name on Card: <input type="text" id="nameOnCard" class="input-field" /><br>
 			</label>
-			<input id="paymentSubmit" type="submit" value="Submit Form" />
-			<input name="Reset" type="reset" value="Reset Form" />
+			<button disabled id="paymentSubmit" type="submit" value="Submit Form">Submit</button>
+			<button id="resetPaymentForm" name="Reset" type="reset" value="Reset Form">Reset</button>
 		</form>
 	</div>
 	<script type="text/javascript" src="javascript/script.js"></script>
+	<script type="text/javascript" src="javascript/user.js"></script>
 </body>
 
 </html>
