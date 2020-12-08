@@ -9,28 +9,35 @@ $(function() {
     let index = 0;
 
     console.log(length);
-
-    $('#intro').empty();
-
-   let typing;
-
-    function typeIntro(length, index) {
-        if (index < length) {
-            $('#intro').append(string[index])
-        }
-        else clearInterval(typing);
-    }
     
-    setTimeout(function() {
-        typing = setInterval(function() {
-            typeIntro(length, index)
-            index++;
-        }, 50);
-    }, 1000);
+    let typing;
+
+    if (!localStorage.getItem("intro")) {
+        $('#intro').empty();
+
+        function typeIntro(length, index) {
+            if (index < length) {
+                $('#intro').append(string[index])
+            }
+            else clearInterval(typing);
+            localStorage.setItem("intro", true);
+        }
+        
+        setTimeout(function() {
+            typing = setInterval(function() {
+                typeIntro(length, index)
+                index++;
+            }, 50);
+        }, 1000);
+
+    } 
 
     $('#intro').click(function() {
         clearInterval(typing);
         $('#intro').empty();
         $('#intro').text(string);
+        localStorage.setItem("intro", true);
     })
+
+    $('#blabla').click(function(){localStorage.clear("intro")})
 });
