@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/vacnoj/Demenos/issues"
   },
-  "homepage": "https://github.com/vacnoj/Demenos#readme",
+  "homepage": "",
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1"
