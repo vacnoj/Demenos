@@ -29,6 +29,10 @@ app.get('/login', (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
+app.get('/checkout', (req, res) => {
+    res.sendFile(__dirname + "/public/checkout.html")
+})
+
 // Login check
 app.post("/api/login", function(req, res) {
     console.log("Querying database")
